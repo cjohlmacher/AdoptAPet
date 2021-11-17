@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Our Pets</h1>
+    <a href="/add" class="button affirm">Add Pet</a>
+    <ul class="profiles">
+        {% for pet in pets %}
+            <div class="profile">
+                <li>{{pet.name}}
+                    {% if pet.available == "true" %}
+                        <b>is available</b>
+                    {% endif %}
+                </li>
+                {% if pet.photo_url != '' %}
+                    <img class="profile-image" src="{{pet.photo_url}}" />
+                {% elif pet.species == 'dog' %}
+                    <img class="profile-image" src="https://cdn.pixabay.com/photo/2016/04/07/18/57/silhouette-1314467_1280.png" />
+                {% elif pet.species == 'cat' %}
+                    <img class="profile-image" src="https://cdn.pixabay.com/photo/2013/07/12/16/39/cat-151326_1280.png" />
+                {% elif pet.species == 'porcupine' %}
+                    <img class="profile-image" src="https://cdn.pixabay.com/photo/2020/10/22/18/37/hedgehog-5676856_1280.png" />
+                {% endif %}
+                <a href="/{{pet.id}}" class="button">See Details</a>
+            </div>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

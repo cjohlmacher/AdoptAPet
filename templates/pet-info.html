@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{pet.name}}{% endblock%}
+
+{% block content %}
+    <h1 class="low-margin">{{pet.name}}</h1>
+    {% if pet.available == 'true' %}
+    <h2 class="loud">Available!</h2>
+    {% endif %}
+    <div class="pet-page">
+        {% if pet.photo_url != '' %}
+        <img class="info-image" src="{{pet.photo_url}}" />
+        {% endif %}
+        <div class="info">
+            <p>Species: {{pet.species.capitalize()}}</p>
+            {% if pet.age %}
+            <p>Age: {{pet.age}}</p>
+            <p class="notes">Notes: {{pet.notes}}</p>
+            {% endif %}
+        </div>
+    </div>
+    <a href="/{{pet.id}}/edit" class="button affirm">Edit</a>
+    <a href="/" class="button">Back to Home</a>
+{% endblock %}
