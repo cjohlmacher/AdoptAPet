@@ -13,7 +13,7 @@
                         <b>is available</b>
                     {% endif %}
                 </li>
-                {% if pet.photo_url != '' %}
+                {% if pet.photo_url != '' and pet.photo_url != None %}
                     <img class="profile-image" src="{{pet.photo_url}}" />
                 {% elif pet.species == 'dog' %}
                     <img class="profile-image" src="https://cdn.pixabay.com/photo/2016/04/07/18/57/silhouette-1314467_1280.png" />

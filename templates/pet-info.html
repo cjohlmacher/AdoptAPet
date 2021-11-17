@@ -8,7 +8,7 @@
     <h2 class="loud">Available!</h2>
     {% endif %}
     <div class="pet-page">
-        {% if pet.photo_url != '' %}
+        {% if pet.photo_url != '' and pet.photo_url != None %}
         <img class="info-image" src="{{pet.photo_url}}" />
         {% endif %}
         <div class="info">
